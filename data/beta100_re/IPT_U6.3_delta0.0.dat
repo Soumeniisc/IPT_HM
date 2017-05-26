@@ -1,0 +1,173 @@
+ main is started2
+ IPT                                                                                                 ------------------------
+           1 ------init------------------
+ mixing--------------  0.50000000000000000     
+ parameter is set
+ dmft is constructed
+ output files are intialised
+ reading eq green function
+  Iteration #   1
+ |G0_new-G0_old| =7.22363208234310
+  Iteration #   2
+ |G0_new-G0_old| =5.03074704203755
+  Iteration #   3
+ |G0_new-G0_old| =3.51091607986018
+  Iteration #   4
+ |G0_new-G0_old| =2.45319457654841
+  Iteration #   5
+ |G0_new-G0_old| =1.71563577617053
+  Iteration #   6
+ |G0_new-G0_old| =1.20058026147308
+  Iteration #   7
+ |G0_new-G0_old| =0.84054825679050
+  Iteration #   8
+ |G0_new-G0_old| =0.58866442526050
+  Iteration #   9
+ |G0_new-G0_old| =0.41236384431977
+  Iteration #  10
+ |G0_new-G0_old| =0.28892272820303
+  Iteration #  11
+ |G0_new-G0_old| =0.20246163391312
+  Iteration #  12
+ |G0_new-G0_old| =0.14189659482236
+  Iteration #  13
+ |G0_new-G0_old| =0.09945391609517
+  Iteration #  14
+ |G0_new-G0_old| =0.06971813099085
+  Iteration #  15
+ |G0_new-G0_old| =0.04886267387121
+  Iteration #  16
+ |G0_new-G0_old| =0.03424749922380
+  Iteration #  17
+ |G0_new-G0_old| =0.02401896067150
+  Iteration #  18
+ |G0_new-G0_old| =0.01684492576960
+  Iteration #  19
+ |G0_new-G0_old| =0.01179585341411
+  Iteration #  20
+ |G0_new-G0_old| =0.00826946187788
+  Iteration #  21
+ |G0_new-G0_old| =0.00580050753441
+  Iteration #  22
+ |G0_new-G0_old| =0.00406844007788
+  Iteration #  23
+ |G0_new-G0_old| =0.00285178249239
+  Iteration #  24
+ |G0_new-G0_old| =0.00200651406079
+  Iteration #  25
+ |G0_new-G0_old| =0.00140960983351
+  Iteration #  26
+ |G0_new-G0_old| =0.00099278149836
+  Iteration #  27
+ |G0_new-G0_old| =0.00067769457441
+  Iteration #  28
+ |G0_new-G0_old| =0.00048268214261
+  Iteration #  29
+ |G0_new-G0_old| =0.00033096596795
+  Iteration #  30
+ |G0_new-G0_old| =0.00024734903225
+  Iteration #  31
+ |G0_new-G0_old| =0.00015778560248
+  Iteration #  32
+ |G0_new-G0_old| =0.00012966850801
+  Iteration #  33
+ |G0_new-G0_old| =0.00007176329404
+  Iteration #  34
+ |G0_new-G0_old| =0.00006155634776
+  Iteration #  35
+ |G0_new-G0_old| =0.00003379193365
+  Iteration #  36
+ |G0_new-G0_old| =0.00004005982191
+  Iteration #  37
+ |G0_new-G0_old| =0.00002185623460
+  Iteration #  38
+ |G0_new-G0_old| =0.00001186875310
+  Iteration #  39
+ |G0_new-G0_old| =0.00000667943461
+  Iteration #  40
+ |G0_new-G0_old| =0.00000392831326
+  Iteration #  41
+ |G0_new-G0_old| =0.00000235158682
+  Iteration #  42
+ |G0_new-G0_old| =0.00000149616829
+  Iteration #  43
+ |G0_new-G0_old| =0.00000091199692
+  Iteration #  44
+ |G0_new-G0_old| =0.00000051560310
+  Iteration #  45
+ |G0_new-G0_old| =0.00000031740620
+  Iteration #  46
+ |G0_new-G0_old| =0.00000023320899
+  Iteration #  47
+ |G0_new-G0_old| =0.00000016130798
+  Iteration #  48
+ |G0_new-G0_old| =0.00000011045631
+  Iteration #  49
+ |G0_new-G0_old| =0.00000005522815
+  Iteration #  50
+ |G0_new-G0_old| =0.00000004251533
+  Iteration #  51
+ |G0_new-G0_old| =0.00000006596115
+  Iteration #  52
+ |G0_new-G0_old| =0.00000004788165
+  Iteration #  53
+ |G0_new-G0_old| =0.00000002394083
+  Iteration #  54
+ |G0_new-G0_old| =0.00000002687158
+  Iteration #  55
+ |G0_new-G0_old| =0.00000001343571
+  Iteration #  56
+ |G0_new-G0_old| =0.00000000671787
+  Iteration #  57
+ |G0_new-G0_old| =0.00000000335886
+  Iteration #  58
+ |G0_new-G0_old| =0.00000000167943
+  Iteration #  59
+ |G0_new-G0_old| =0.00000000083964
+  Iteration #  60
+ |G0_new-G0_old| =0.00000000041982
+  Iteration #  61
+ |G0_new-G0_old| =0.00000000020991
+  Iteration #  62
+ |G0_new-G0_old| =0.00000000010495
+  Iteration #  63
+ |G0_new-G0_old| =0.00000000005255
+  Iteration #  64
+ |G0_new-G0_old| =0.00000000002626
+  Iteration #  65
+ |G0_new-G0_old| =0.00000000001304
+  Iteration #  66
+ |G0_new-G0_old| =0.00000000000652
+  Iteration #  67
+ |G0_new-G0_old| =0.00000000000326
+  Iteration #  68
+ |G0_new-G0_old| =0.00000000000163
+  Iteration #  69
+ |G0_new-G0_old| =0.00000000000081
+  Iteration #  70
+ |G0_new-G0_old| =0.00000000000040
+  Iteration #  71
+ |G0_new-G0_old| =0.00000000000020
+  Iteration #  72
+ |G0_new-G0_old| =0.00000000000010
+  Iteration #  73
+ |G0_new-G0_old| =0.00000000000005
+  Iteration #  74
+ |G0_new-G0_old| =0.00000000000002
+  Iteration #  75
+ |G0_new-G0_old| =0.00000000000001
+  Iteration #  76
+ |G0_new-G0_old| =0.00000000000001
+  Iteration #  77
+ |G0_new-G0_old| =0.00000000000000
+  Iteration #  78
+ |G0_new-G0_old| =0.00000000000000
+  Iteration #  79
+ |G0_new-G0_old| =0.00000000000000
+  Iteration #  80
+ |G0_new-G0_old| =0.00000000000000
+  Iteration #  81
+ |G0_new-G0_old| =0.00000000000000
+  Iteration #  82
+ |G0_new-G0_old| =0.00000000000000
+Equilibrium DMFT is converged

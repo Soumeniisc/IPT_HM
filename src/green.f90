@@ -1,0 +1,64 @@
+!----------------------------------------------------------------------------
+!  date:   May 23, 2017
+!  update: calculate_coeffi(parm_,n,G,ah) was added on 11/05/17 to calculate the green's function high frequency coeeficints. test it
+!----------------------------------------------------------------------------
+
+module GREEN_MOD
+  
+  use CONST_MOD
+  use PARM_MOD
+  implicit none
+  
+  private
+  public :: allocate_KB,              &
+            deallocate_KB,            &  
+	    calculate_coeffi        
+  
+  type, public :: KB
+     complex(kind(0d0)), pointer :: matsubara_w(:)   ! Matsubara Green function G^{M}(w)
+     double precision, pointer   :: matsubara_t(:)   ! Matsubara Green function G^{M}(tau)
+  end type KB
+  
+contains
+  
+  subroutine allocate_KB(parm_,KB_)
+    type(parm), intent(in) :: parm_
+    type(KB), intent(out)  :: KB_
+    
+    allocate(KB_%matsubara_w(parm_%N_tau))
+    allocate(KB_%matsubara_t(parm_%N_tau))  
+  end subroutine allocate_KB
+  
+  
+  subroutine deallocate_KB(KB_)
+    type(KB), intent(out) :: KB_
+    
+    deallocate(KB_%matsubara_w)
+    deallocate(KB_%matsubara_t)
+  end subroutine deallocate_KB
+  
+   
+  subroutine calculate_coeffi(parm_,n,G,ah)
+    !----------------------------------------------------------------------------
+    !  its calculate high frequency exponent og Green's function
+    !----------------------------------------------------------------------------
+    type(parm), intent(in)                 :: parm_
+    integer, intent(in)                    :: n       ! time step
+    type(KB), intent(inout)                :: G
+    double precision ,intent(out) :: ah(:)
+    double precision                       :: Sy, Sz ,w    
+    integer                                :: l
+
+    !allocate(ah(2))
+    Sy = 0.d0
+    Sz = 0.d0
+     do l=n, parm_%N_tau
+       w=dble(2*l-parm_%N_tau-1)*pi/parm_%beta
+       Sy = Sy + IMAG(G%matsubara_w(l))*w
+       Sz = Sz - Real(G%matsubara_w(l))*w*w
+    end do
+    ah(1) = - Sy/(parm_%N_tau-n+1)
+    ah(2) =   Sz/(parm_%N_tau-n+1)
+    ah(2) =  ah(2)/ah(1)
+  end subroutine calculate_coeffi
+end module GREEN_MOD

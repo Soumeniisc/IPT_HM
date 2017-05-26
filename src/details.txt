@@ -1,0 +1,16 @@
+project will go like this
+
+1> first we will do paramagnetic HM phase transition and paramagnetic phase diagram
+
+2> IHM para phase transition
+3> then convert the IHM non eqi
+
+fft_test
+========
+1/(iwn - epsilon) --> -exp(epsilon(beta-tau))*nf(epsilon)
+
+fft_test2
+=========
+1/(iwn - epsilon)**2 --> exp(epsilon(beta-tau))*nf(epsilon) *(tau - beta*nf(epsilon))
+
+

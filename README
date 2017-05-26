@@ -1,0 +1,30 @@
+#####################################################
+# date  : 26/05/17
+# author: Soumen Kumar Bag soumenkrbag@gmail.com
+# affiliation: PHD scholar at IISC, Bangalore, India
+############################################
+what is this?
+
+	This is Finite temperatre IPT code for Hubbard model(HM) at half filling. HM paramagnetic phase digram is produced using this code. 
+
+what does it contan?
+	its contain src code for iterative perterbation theory source code in src/ and paramagnetic phase diagram in data/analysis/ and test/ directory contain the test for FFT.
+
+INSTALLATION:
+
+ code is written using fortran. dependecy libray FFTW3 need to be installed. Tested in gortran compiler. change $LIBS and $HEADERS_PATH  veriable for fftw3 according to ur machine in Makefile 
+
+wisdom:
+
+1> 1/iwn shift of G(iwn) is important for correct result of G(\tau) otherwise its give oscillation near G(\tau=0.0, beta). beacuse at large frequeny G(iwn)= 1/(iwn-\Sigma(iwn)) behave as iwn. bythis method large fquency contribution taken exactly and uts taken upto -\inf to +\inf although calculation is done in funite window. 
+
+2> always take tau grid poin at the middle of spacing. I tried with taking grid poins at the  ends of spacing like if  u have N no spacing then total no of grid point is N+1(inclusing grid point at tau = 0.0 and beta). mid spacing grid is wises choice for self consistency. Use FFTW3 for fourier transorm. take around 2^10=1024 points for calculation
+
+3> to get the no of particle(n) one need extrapolate the G(tau) to G(\beta) as we dont have data at tau = \beta.  ***** extrapolation techniqe was used. n= -G(\beta)
+
+4> don't forget to mix prevous iteration data with current data to get input for current iteration.  its make self consistency faster. reduce oscillation.
+
+
+Ackowledge:
+	
+	Thanks to Naoto Tsuji <tsuji@cms.phys.s.u-tokyo.ac.jp> for making his non-equillibium code. some of the modules are taken from that packages and midified it to meet our requirement. Thanks to Arijit for usefull discussion about getting currect fourier transform for G(iwn) and G(\tau). I was in loop hole for a while becuase FFT. Arijit helped me with the insite of FFT for this particular problem and even he shared his FFT code with me. With the help of his code i sorted out the mistake (of taking 0.5 factor at the two end of tau grid while making FFT and not taking tau grid at the middle of spacing) made in code. 

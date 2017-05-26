@@ -1,0 +1,10 @@
+ dos:  semicircular                                                                                        
+ beta:     10.000000000000000     
+ U:     6.5000000000000000     
+ N_tau:          2048
+ N_iter:          1000
+ tolarence:     0.0000000000000000     
+ solver:  IPT                                                                                                 
+ init:             1
+ mix:    0.20000000000000001     
+ delta:     0.0000000000000000     

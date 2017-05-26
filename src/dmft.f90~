@@ -1,0 +1,78 @@
+!----------------------------------------------------------------------------
+!  data:   May 23, 2017
+!
+!----------------------------------------------------------------------------
+module DMFT_MOD
+  
+  use CONST_MOD
+  use GREEN_MOD
+  use PARM_MOD
+  use FFT_MOD
+  implicit none
+  
+  private
+  public :: construct_dmft,           &
+            destruct_dmft,            &
+            initialize_output_file
+            
+  type, public :: dmft
+     type(KB)                     :: local_green         ! local Green function G(t,t')
+     type(KB)                     :: weiss_green         ! Weiss Green function G0(t,t')
+     type(KB)                     :: self_energy         ! local self-energy Sigma(t,t')
+     type(KB)                     :: weiss_green_new     ! updated Weiss Green function G0(t,t')    
+     double precision             :: G0_diff             ! convergence measure |G0_{new}-G0_{old}|
+     integer                      :: time_step           ! n: t_n=(n-1)*dt
+     integer                      :: iteration           ! # of DMFT iteration
+     logical                      :: converged           ! DMFT self-consistency is converged or not
+     double precision             :: density
+     double precision             :: double_occu
+     !double precision, pointer    :: ah(:) 		 ! high energy behaviour of G= ah(1)/{iwn - ah(2)}
+  end type dmft
+  
+contains
+  
+  subroutine construct_dmft(parm_,dmft_)
+    type(parm), intent(in)    :: parm_
+    type(dmft), intent(inout) :: dmft_
+    
+    call allocate_KB(parm_,dmft_%local_green)
+    call allocate_KB(parm_,dmft_%weiss_green)
+    call allocate_KB(parm_,dmft_%self_energy)
+    call allocate_KB(parm_,dmft_%weiss_green_new)
+    !allocate(dmft_%ah(2))
+  end subroutine construct_dmft
+  
+  
+  subroutine destruct_dmft(parm_,dmft_)
+    type(parm), intent(in)    :: parm_
+    type(dmft), intent(inout) :: dmft_
+    integer                   :: k
+    
+    call deallocate_KB(dmft_%local_green)
+    call deallocate_KB(dmft_%weiss_green)
+    call deallocate_KB(dmft_%self_energy)
+    call deallocate_KB(dmft_%weiss_green_new)  
+  end subroutine destruct_dmft
+  
+  
+  subroutine initialize_output_file()
+    
+    open (unit=7, file="density", status="replace", action="write")
+    open (unit=12,file="Gf", status="replace", action="write")
+    open (unit=13,file="Gf_tau", status="replace", action="write")
+    open (unit=14,file="Sig", status="replace", action="write")
+    open (unit=15,file="Sig_tau", status="replace", action="write")
+    open (unit=16,file="G0", status="replace", action="write")
+    open (unit=17,file="G0_tau", status="replace", action="write")
+    close (7)
+    close (12)
+    close (13)
+    close (14)
+    close (15)
+    close (16)
+    close (17)
+    
+  end subroutine initialize_output_file
+  
+  
+end module DMFT_MOD

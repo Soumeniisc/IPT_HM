@@ -1,0 +1,86 @@
+import matplotlib.pyplot as plt
+from scipy import *
+import numpy as np	
+
+beta = 100.0
+N=1025
+e = -0.1
+nf = 1.0/(1.0+exp(e*beta))
+
+tau = []
+G_t = []
+d  = loadtxt("G_tau_free")
+N_t = len(d[:,0])
+data = open("G_tau_comparison.dat",'w')
+print >> data, "#tau[i], numerical,analytical"
+for i in range(len(d)):
+        tau.append(d[i,0])
+	gt = -exp(e*(beta-tau[i])) *nf
+	G_t.append( gt )	
+	print >> data, tau[i], d[i,1],G_t[i]
+
+diff = 0.0
+for i in range(N_t):
+	print d[i,1]
+	diff = diff + abs( np.array(d[i,1])-np.array(G_t[i]))
+
+plt.text(beta/2,-0.2,"diff=%s"%(diff/N_t))
+plt.plot(d[:,0],d[:,1],'-o',label='fortran')
+plt.plot(tau,G_t,'-*',label = "analytical")
+
+plt.savefig("G_tau")
+plt.legend()
+plt.show()
+
+'''
+wn=[]
+G=[]
+for i in range(N):
+	wn.append((2*i+1.0)*np.pi/beta)	
+	G.append(1.0/(1j*wn[i] -e))
+
+d  = loadtxt("G_wn_out")
+plt.plot(d[:,0],d[:,1],'-o',label='real')
+plt.plot(d[:,0],d[:,2],'-o',label='imag')
+plt.plot(wn,np.array(G).imag,'-*')
+plt.plot(wn,np.array(G).real,'-*',)
+plt.legend()
+plt.show()
+'''
+d  = loadtxt("G_wn_out")
+d1  = loadtxt("G_wn")
+
+diff = 0.0
+for i in range(N_t):
+	#print d[i,1]
+	diff = diff + abs( d[i,2]-d1[i,2])
+
+plt.text(10,-1.0,"diff=%s"%(diff/N_t))
+plt.plot(d[:,0],d[:,2],'-o',label='out_imag')
+plt.plot(d1[:,0],d1[:,2],'-*',label='in_imag')
+#plt.plot(wn,np.array(G).imag,'-*')
+#plt.plot(wn,np.array(G).real,'-*',)
+plt.legend()
+plt.savefig("G_iw_imag.eps",format="eps")
+plt.show()
+
+
+diff = 0.0
+for i in range(N_t):
+	#print d[i,1]
+	diff = diff + abs( d[i,1]-d1[i,1])
+
+plt.text(10,-1.0,"diff=%s"%(diff/N_t))
+plt.plot(d[:,0],d[:,1],'-o',label='out_imag')
+plt.plot(d1[:,0],d1[:,1],'-*',label='in_imag')
+#plt.plot(wn,np.array(G).imag,'-*')
+#plt.plot(wn,np.array(G).real,'-*',)
+plt.legend()
+plt.savefig("G_iw_re.eps",format="eps")
+plt.show()
+
+diff = 0.0
+for i in range(N_t):
+	#print d[i,1]
+	diff = diff + abs( d[i,0]-d1[i,0])
+print "difference in frequency:",diff
