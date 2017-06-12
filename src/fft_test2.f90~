@@ -6,10 +6,11 @@ program fft_test
   use FFT_MOD
 
   implicit none
-  type(parm) :: parm_
-  type(dmft) :: dmft_
-  integer    :: j
-  real       :: w
+  type(parm)       :: parm_
+  type(dmft)       :: dmft_
+  integer          :: j
+  real             :: w
+  double precision :: ah(2)
 
   call set_parm(parm_)
   call construct_dmft(parm_,dmft_)

@@ -1,10 +1,6 @@
 !----------------------------------------------------------------------------
 !
-!  author: Naoto Tsuji <tsuji@cms.phys.s.u-tokyo.ac.jp>
-!
-!          Department of Physics, University of Tokyo
-!
-!  date:   February 28, 2013
+!  data:   May 23, 2017
 !
 !----------------------------------------------------------------------------
 module INTEGRAL_MOD

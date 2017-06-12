@@ -205,14 +205,27 @@ contains
     !  n(t)=<c^+(t)c(t)>
     type(parm), intent(in)          :: parm_
     type(dmft), intent(inout)       :: dmft_
-    double precision                :: slop
-    integer                         :: npoint
+    double precision                :: slop,w
+    complex(kind(0d0))              :: sum_
+    integer                         :: npoint , j
     
-    npoint = 2 ! no of point for liner fit
-    slop = (dmft_%local_green%matsubara_t(parm_%N_tau) - dmft_%local_green%matsubara_t(parm_%N_tau-npoint))/dble(npoint)
-    dmft_%density = -(dmft_%local_green%matsubara_t(parm_%N_tau) + slop*parm_%dtau/2.0)
+    !npoint = 1 ! no of point for liner fit
+    !slop = (dmft_%local_green%matsubara_t(parm_%N_tau) - dmft_%local_green%matsubara_t(parm_%N_tau-npoint))/dble(npoint)
+    !dmft_%density = -(dmft_%local_green%matsubara_t(parm_%N_tau) + slop/2.0)
+    ! this portion is added on 28/05/17 to calculate n acurately by calculating G(0)
+     sum_ = dcmplx(0.d0, 0.d0)
+     do j=1, parm_%N_tau
+       w=dble(2*j-parm_%N_tau-1)*pi/parm_%beta
+       dmft_%local_green%matsubara_w(j)=dmft_%local_green%matsubara_w(j)-1.d0/(xj*w)!-(parm_%e2+0.25d0*parm_%U_i**2)/(xj*w)/(xj*w)/(xj*w)
+       sum_ = sum_ + dmft_%local_green%matsubara_w(j)
+       dmft_%local_green%matsubara_w(j)=dmft_%local_green%matsubara_w(j)-1.d0/(xj*w)
+    end do
+    
+    sum_ = sum_/parm_%beta - 0.5 !G(\tau=0.0)
+    dmft_%density = 1.d0 + real(sum_)
+
     open (unit=7, file='density', status='old', action='write', position='append')
-    write (7,'(f15.10,f15.10,f15.10)') parm_%U_i, dmft_%density, -(dmft_%local_green%matsubara_t(parm_%N_tau))
+    write (7,'(f15.10,f15.10,f15.10,f15.10)') parm_%U_i, dmft_%density, real(sum_), IMAG(sum_)
     close (7)
     
   end subroutine measure_density
@@ -230,8 +243,8 @@ contains
        dmft_%double_occu = (-dmft_%local_green%matsubara_t(parm_%N_tau))**2 ! density^2
     else
        allocate(SxG(parm_%N_tau))
-       do i=1, parm_%N_tau+1
-          SxG(i)=dmft_%self_energy%matsubara_t(parm_%N_tau-i+2)*dmft_%local_green%matsubara_t(i)
+       do i=1, parm_%N_tau
+          SxG(i)=dmft_%self_energy%matsubara_t(parm_%N_tau-i+1)*dmft_%local_green%matsubara_t(i)
        end do
        dmft_%double_occu=dmft_%density**2 -1.d0/parm_%U_i*parm_%dtau*trapezoid_d(SxG,1,parm_%N_tau)
        deallocate(SxG)

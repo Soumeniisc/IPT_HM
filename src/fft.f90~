@@ -34,7 +34,7 @@ contains
     !               = 1    for 2<=j<=n
     !----------------------------------------------------------------------------
     type(parm), intent(in)            :: parm_
-    complex(kind(0d0)), intent(in)      :: y(:)
+    double precision, intent(in)      :: y(:)
     complex(kind(0d0)), intent(out)   :: z(:)
     complex(kind(0d0)), allocatable   :: w(:)
     integer                           :: plan(8), j, k

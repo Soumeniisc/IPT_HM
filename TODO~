@@ -1,0 +1,8 @@
+1> In this calculation G(\tau) is taken real(which is true). But while we are doing FFT for wn --> \tau we are only taking its real value. Our work would be to define G(\tau) complex data type instead of real and  in the calculation we should see that imaginary part of G(\tau) is become zero.
+
+1.1> calculate extrapolation correlty to get G(\beta). its look like G(\beta) is calculated deviate for large beta. in principle G(\beta) = -0.5. like  at \beta=100 it's -0.4986
+2> Also create seperate seperate test directory and keep the test modules and check test is sucessfull.
+
+3> work on github to make comment on every change and push it and also branching the code for developing for anothe problem.
+
+4> add doc directory where the relevent formula and relevent importtant things will be stored

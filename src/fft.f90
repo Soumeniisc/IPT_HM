@@ -1,10 +1,6 @@
 !----------------------------------------------------------------------------
 !
-!  author: Naoto Tsuji <tsuji@cms.phys.s.u-tokyo.ac.jp>
-!
-!          Department of Physics, University of Tokyo
-!
-!  date:   February 28, 2013
+!  date:   May 25, 2017
 !
 !----------------------------------------------------------------------------
 module FFT_MOD
