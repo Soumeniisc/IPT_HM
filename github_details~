@@ -1,0 +1,60 @@
+create new reporsitsry using command line
+========================================
+https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/
+Create a new repository on GitHub with name "IPT_HM"
+echo "# IPT_HM" >> README.md
+git init
+git add README.md(what ever u want to add. if u want to add whole then put .)
+git commit -m "first commit"
+git remote add origin https://github.com/Soumeniisc/IPT_HM.git
+git push -u origin master
+
+or push an existing repository from the command line
+====================================================
+git remote add origin https://github.com/Soumeniisc/IPT_HM.git
+git push -u origin master
+
+=============================
+
+project1
+==========
+created by 'git init project1' in /python directory it created on 09/11/15 the created directory contan .gte directory. it contan all the stuff requir for git to wrok and version controling stuff
+tree .git
+git status
+# following is how to push the developing directory
+git add
+git config --global user.email "soumenkrbag@gmail.com"
+git config --global user.name "soumen"
+git commit -m "massage that want with the commitment"
+git remote add origin https://github.com/Soumeniisc/project1.git
+git push -u origin master
+#it will ask for username and password
+username :: Soumeniisc
+Password :: 9883345645@s
+
+# work on some other existing other's project
+fork the directory in your git space
+then go to the command line and type 
+git clone https://github.com/Soumeniisc/directory_that_forked.git
+git branch -a
+git branch novclassfeature
+git checkout novclassfeature
+gedit file.txt
+git status
+git add file.txt
+git commit -m "massage"
+git push -u origin novclassfeature
+#branch novclassfeature set up to track remote branch novclassfeature from origin
+if you do "git checkout master" then you will see that newly created file will no longer be  there in the filder anymore.
+# EGit is an Eclipse Team provider for the Git version control system. The EGit project is implementing Eclipse tooling on top of the JGit Java implementation of Git.
+
+File attachments on issues and pull requests
+--------------------------------------------
+To attach a file to an issue or pull request conversation, drag and drop it into the comment box.
+
+The maximum size for files is 25MB and the maximum size for images is 10MB.
+
+Github is the place to create wiki
+==================================
+
+https://help.github.com/articles/adding-images-to-wikis/

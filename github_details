@@ -30,7 +30,7 @@ git remote add origin https://github.com/Soumeniisc/project1.git
 git push -u origin master
 #it will ask for username and password
 username :: Soumeniisc
-Password :: 9883345645@s
+Password :: *********
 
 # work on some other existing other's project
 fork the directory in your git space

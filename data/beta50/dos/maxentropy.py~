@@ -536,7 +536,7 @@ if __name__ == '__main__':
 
     #test6('Gf.out_T_0.005', 54, 20.)
     
-    fs=['U1.0_beta100.0', 'U3.0_beta100.0', 'U5.0_beta100.0', 'U6.0_beta100.0', 'U7.0_beta100.0']
+    fs=['U1.0_beta50.0', 'U3.0_beta50.0', 'U5.0_beta50.0', 'U6.0_beta50.0', 'U6.5_beta50.0]
     for fi in fs:
         test2('Sig_'+fi, 'DOS_'+fi, 72)
     
